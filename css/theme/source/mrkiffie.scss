@@ -5,6 +5,12 @@
  */
 
 
+$green: #00cc00;
+$red: #dd0000;
+$blue: #0088dd;
+$yellow: #cccc00;
+
+
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
@@ -27,8 +33,8 @@ $headingFont: 'Open Sans', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: none;
-$headingFontWeight: 600;
-$linkColor: #42affa;
+$headingFontWeight: 400;
+$linkColor: $blue;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
@@ -65,8 +71,144 @@ small img.icon {
     margin: -.2em .25em;
 
 }
-.col{
+.reveal .col{
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 auto;
     text-align: left;
-    float: left;
+    width: 25%;
+    padding: 0 0 0 10%;
+}
+.reveal .col-3{
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 auto;
     width: 30%;
+    padding: 0 ;
+}
+
+.reveal .fl{
+    float: left;
+    text-align: right;
+}
+.reveal .fr{
+    float: right;
+    text-align: right;
+}
+.reveal .ct{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.reveal pre {
+    box-shadow: none;
+}
+.reveal h1 code {
+    font-weight: 400;
+}
+
+.added {
+    color: $green;
+}
+h2.freakout,
+.deleted {
+    color: $red;
+}
+.context{
+    color: $blue;
+}
+.meta{
+    color: $yellow;
+}
+
+// branching
+.container{
+    position: relative;
+    img{
+        height: 10em;
+    }
+}
+.head-1 {
+    position: absolute;
+    top: -1em;
+    left: 34%;
+}
+.master-1 {
+    position: absolute;
+    top: 0;
+    left: 31%;
+}
+.feature-1 {
+    position: absolute;
+    top: 0;
+    left: 56%;
+}
+
+.head-2 {
+    position: absolute;
+    top: 1em;
+    left: 65%;
+}
+.master-2 {
+    position: absolute;
+    top: 0;
+    left: 23%;
+}
+.feature-2 {
+    position: absolute;
+    top: 2em;
+    left: 65%;
+}
+
+.head-3 {
+    position: absolute;
+    top: -1em;
+    left: 29%;
+}
+.master-3 {
+    position: absolute;
+    top: 0;
+    left: 27%;
+}
+.feature-3 {
+    position: absolute;
+    top: 1.5em;
+    left: 60%;
+}
+
+
+
+.head-old-4 {
+    position: absolute;
+    top: 0em;
+    left: 25%;
+}
+.head-4 {
+    position: absolute;
+    top: 1em;
+    left: 65%;
+}
+.master-4 {
+    position: absolute;
+    top: 1em;
+    left: 23%;
+}
+.feature-4 {
+    position: absolute;
+    top: 2em;
+    left: 65%;
+}
+
+
+.full-width{
+    position: relative;
+    top: -3em;
+    width: 100%;
+}
+.smallprint{
+    position: absolute;
+    top: 70%;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

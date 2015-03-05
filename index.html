@@ -14,11 +14,11 @@
         <link rel="stylesheet" href="lib/css/monokai_sublime.css">
         <!-- Printing and PDF exports -->
         <script>
-                    var link = document.createElement( 'link' );
-                    link.rel = 'stylesheet';
-                    link.type = 'text/css';
-                    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-                    document.getElementsByTagName( 'head' )[0].appendChild( link );
+                                                    var link = document.createElement( 'link' );
+                                                    link.rel = 'stylesheet';
+                                                    link.type = 'text/css';
+                                                    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+                                                    document.getElementsByTagName( 'head' )[0].appendChild( link );
         </script>
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
@@ -31,9 +31,9 @@
                 <section>
                     <h1>git without the magic</h1>
                     <h3>demystifying what's under the hood</h3>
-                    <p>
+                    <!-- <p>
                     <small>Created by <a href="http://mrkiffie.com">mrkiffie</a> / <a href="http://twitter.com/mrkiffie">@mrkiffie</a></small>
-                    </p>
+                    </p> -->
                     <aside class="notes">
                     </aside>
                 </section>
@@ -57,152 +57,547 @@
                         </ul>
                     </aside>
                 </section>
+
                 <section>
-                    <section>
-                        <h2>a brief history of version control</h2>
-                        <p>first generation</p>
+                    <h1>version control</h1>
+
+                    <h3>what is it?</h3>
+                    <p class="fragment">a system that records changes to a file or set of files over time so that you can recall specific versions later</p>
+                    <aside class="notes">
+                        a system that records changes to a file or set of files over time so that you can recall specific versions later
+                    </aside>
+                </section>
+
+                <section>
+                    <h1>3 generations<br> of<br> version control</h1>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1>1st generation</h1>
+                    <br>
+                    <img src="images/first-gen.svg">
+                    <aside class="notes">
                         <ul>
                             <li>networking: none</li>
                             <li>operations: one file at a time</li>
                             <li>concurrency: locks</li>
                             <li>examples: rcs, sccs</li>
                         </ul>
-                        <aside class="notes">
-                        </aside>
-                    </section>
-                    <section>
-                        <p>second generation</p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>2nd generation</h1>
+                    <br>
+                    <img src="images/centralized.svg">
+                    <aside class="notes">
                         <ul>
                             <li>networking: centralized</li>
                             <li>operations: multi-file</li>
                             <li>concurrency: merge before commit</li>
-                            <li>examples: cvs, sourcesafe, subversion, team foundation server</li>
+                            <li>examples: cvs, sourcesafe,<br> subversion, team foundation server</li>
                         </ul>
-                        <aside class="notes">
-                        </aside>
-                    </section>
-                    <section>
-                        <p>third generation</p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>3rd generation</h1>
+                    <br>
+                    <img src="images/distributed.svg">
+                    <aside class="notes">
                         <ul>
                             <li>networking: distributed</li>
                             <li>operations: changesets</li>
                             <li>concurrency: commit before merge</li>
                             <li>examples: bazaar, git, mercurial</li>
                         </ul>
-                        <aside class="notes">
-                        </aside>
-                    </section>
-                    <aside class="notes">
                     </aside>
                 </section>
                 <section>
                     <img src="images/git-logo.svg" width="488" height="208" alt="git logo">
-                    <p class="fragment">distributed</p>
-                    <p class="fragment">everything is local</p>
-                    <p class="fragment">fast</p>
-                    <p class="fragment">local branching on the cheap</p>
+                    <p>distributed</p>
+                    <p>everything is local</p>
+                    <p>fast</p>
+                    <p>local branching on the cheap</p>
                     <aside class="notes">
                     </aside>
                 </section>
                 <section >
                     <h2>common commands</h2>
-                    <div class="col">&nbsp;</div>
                     <div class="col">
-                        <p><code class="fragment highlight-current-blue">clone</code><br><code class="fragment highlight-current-blue">init</code></p>
-                        <p><code class="fragment highlight-current-blue">status</code><br><code class="fragment highlight-current-blue">diff</code><br><code class="fragment highlight-current-blue">log</code></p>
-                        <p><code class="fragment highlight-current-blue">add</code><br><code class="fragment highlight-current-blue">commit</code></p>
+                        <p><code>clone</code><br><code>init</code></p>
+                        <p><code>status</code><br><code>diff</code><br><code>log</code></p>
+                        <p><code>add</code><br><code>commit</code></p>
+                        <p><code>rebase</code></p>
                     </div>
                     <div class="col">
-                        <p><code class="fragment highlight-current-blue">branch</code><br><code class="fragment highlight-current-blue">merge</code></p>
-                        <p><code class="fragment highlight-current-blue">fetch</code><br><code class="fragment highlight-current-blue">push</code><br><code class="fragment highlight-current-blue">pull</code></p>
-                        <p><code class="fragment highlight-current-blue">reset</code>
-                </p>
+                        <p><code>branch</code><br><code>merge</code></p>
+                        <p><code>fetch</code><br><code>push</code><br><code>pull</code></p>
+                        <p><code>checkout</code><br><code>reset</code>
+                        </p>
+                        <p><code>tag</code></p>
                     </div>
                     <aside class="notes">
                     </aside>
                 </section>
                 <section>
-                <h2>useful commands</h2>
-                <p><code>blame</code></p>
-                <p><code>alias</code></p>
-                <p><code>bisect</code></p>
-                <p><code>stash</code></p>
-                <p><code>rebase</code></p>
-                <p><code>cherry-pick</code></p>
+                    <h1><code>git init</code></h1>
+                    <br>
+                    <pre>
+    .git/
+    ├── hooks/
+    │   └── <span class="fragment highlight-current-blue current-visible"># sample hooks - custom scripts</span>
+    ├── info/
+    │   └── exclude <span class="fragment highlight-current-blue current-visible"># local only equivalent to .gitignore file</span>
+    ├── objects/ <span class="fragment highlight-current-blue current-visible"># this is actually the repo's contents</span>
+    │   ├── info/
+    │   └── pack/
+    ├── refs/
+    │   ├── heads/ <span class="fragment highlight-current-blue current-visible"># contains the refs for all the branches</span>
+    │   └── tags/  <span class="fragment highlight-current-blue current-visible"># contains the refs for all the tags</span>
+    ├── HEAD <span class="fragment highlight-current-blue current-visible"># the ref that is currently checked out</span>
+    ├── config <span class="fragment highlight-current-blue current-visible"># the local config is stored here</span>
+    └── description
+</pre>
                     <aside class="notes">
                     </aside>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                    </script>
-                    <aside class="notes">
-                    </aside>
-                </section>
-                <!-- Example of nested vertical slides -->
                 <section>
+                    <h1><code>git clone</code></h1>
+                    <code>git clone &lt;path/to/repo&gt; [destination]</code>
+                    <br><br>
+                    <ul>
+                        <li>creates a <code>.git</code> directory in the destination directory</li>
+                        <li>fulls the <code>.git</code> directory with the repo's contents</li>
+                        <li>the destination directory is called the "working directory"</li>
+                        <li>it sets the files in the working directory to the state of the default branch - typically <code>master</code></li>
+                    </ul>
+                    <aside class="notes">
+                        now you do some work
+                        you want to know the state of you working directory
+                        and for that, there is (change slide)
+                    </aside>
+                </section>
                     <section>
-                        <h2>Vertical Slides</h2>
+                    <h1><code>git status</code></h1>
+                        <ul>
+                            <li>untracked</li>
+                            <li>modified</li>
+                            <li>"staged" (in the "staging area")</li>
+                        </ul>
+                        <aside class="notes">
+                        <ul>
+                        <li>compares the state of your working directory with the state that was most recently "saved" in the repo</li>
+                        </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <h1>staging area?</h1>
+                        <p>git has three different "areas"</p>
+                        <br>
+
+                        <div class="fl fragment" data-fragment-index="1">working directory</div>
+                        <div class="fr fragment" data-fragment-index="3"><code>.git</code> (repository)</div>
+                        <div class="ct fragment" data-fragment-index="2">staging area</div>
+                        <img class="full-width fragment" src="images/staging-area.svg">
+                        <p>
+                        <small class="smallprint fragment">known aliases: index, cache</small>
+                        </p>
+                    </section>
+                <section>
+                    <h1><code>git diff</code></h1>
+
+<br>
+                    <pre><span class="meta">diff --git a/file b/file
+index 10ff2df..84d4fa2 100644
+--- a/file
++++ b/file</span>
+<span class="context">@@ -1,5 +1,5 @@</span>
+ line1
+ line2
+<span class="deleted">-this line will be deleted</span>
+ line4
+ line5
+<span class="added">+this line is added</span></pre>
+                    <aside class="notes">
+                    <ul>
+                        <li>shows the individual lines that have been modified, added or deleted using the standard diff format</li>
+                    </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git add</code></h1>
+                    <br>
+                    <img src="images/add-truck.svg">
+                    <p>adds a blob named using the file's sha1-hash in the <code>.git/objects</code> directory</p>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1>what is a blob?</h1>
+                    <br>
+                    <p>binary large object</p>
+                    <aside class="notes">
+                        <p>git views all files as blobs</p>
+                    </aside>
+                </section>
+                <section>
+                <h1>what is a sha1-hash?</h1>
+                <br>
+                <p style="line-height: 3em">b22c49194d1a422042daa33a472cc38493129235</p>
+                <div class="fragment" style="background:url(images/ellipse.svg) no-repeat 30px 20%; margin-top: -3.6em; height: 3.5em; background-size: 24em 3em"></div>
+
+                <pre class="fragment" >
+ .git/
+    ├── objects/
+    │   ├── b2/
+    │   │   └── 2c49194d1a422042daa33a472cc38493129235
+                </pre>
+
+                <aside class="notes">
+                    <ul>
+                        <li>"secure hash algorithm"</li>
+                        <li>created by the NSA</li>
+                        <li>sha-1 produces a 160-bit (20-byte) hash value</li>
+                        <li>typically rendered as a 40 character hexadecimal number</li>
+                        <li>it is essentially a checksum</li>
+                        <li>git uses this everywhere</li>
+                    </ul>
+                </aside>
+                </section>
+                <section>
+                    <h1><code>git commit</code></h1>
+                    <br>
+                    <img src="images/commit-truck.svg">
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git commit</code></h1>
+                    <br>
+                    <img src="images/commit.svg">
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git commit</code></h1>
+                    <p>typical commits</p>
+                    <br>
+                    <pre>
+tree 780fecd9f94e0d364ed8329fc1cc9380ea74f579
+parent 94ef7118f49fa741803f30feec00d56d69ae0e64
+author mrkiffie &lt;mrkiffie@gmail.com&gt; 1424725842 +0200
+committer mrkiffie &lt;mrkiffie@gmail.com&gt; 1424725842 +0200
+
+Adding the best feature ever</pre>
+
+                    </pre>
+                    <aside class="notes">
+
+                        <ul><li>normal commits</li></ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git commit</code></h1>
+                    <p>orphan commits</p>
+                    <br>
+                    <pre>
+tree d8329fc1cc938780fecd9f94e0d364e0ea74f579
+author mrkiffie &lt;mrkiffie@gmail.com&gt; 1424722087 +0200
+committer mrkiffie &lt;mrkiffie@gmail.com&gt; 1424722087 +0200
+
+Initial Commit - adding README.md to get this repo going</pre>
+
+                    </pre>
+                    <aside class="notes">
+                    <ul><li>orphan commits - initial commit</li></ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1>trees</h1>
+                    <img src="images/tree.svg">
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git log</code></h1>
+                    <p>what the hell has happened!?</p>
+                    <br>
+                    <pre>git log --oneline
+
+5bdbc2d remove deprecated background colors
+2cfe117 kill unintended transition into overview mode
+abf402d change transition defaults
+327ff7a updating readme</pre>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git log</code></h1>
+                    <p>what the hell has happened!?</p>
+                    <br>
+                    <pre>git log --decorate --graph --all</pre>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git branch</code></h1>
+                    <p>experiment in safety</p>
+                    <br>
+                    <div class="container">
+                    <img class="ct" src="images/branch1.svg" >
+                    <label class="fragment master-1">master</label>
+                    <label class="fragment head-1">HEAD</label>
+                    <label class="fragment feature-1">feature</label>
+                    </div>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git branch</code></h1>
+                    <p>quarantine development</p>
+                    <div class="container">
+                    <img class="ct" src="images/branch2.svg" >
+                    <label class="fragment master-2">master</label>
+                    <label class="fragment feature-2">feature</label>
+                    <label class="fragment head-2">HEAD</label>
+                    </div>
+                    <br>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git merge</code></h1>
+                    <p>put it together</p>
+                    <br>
+                    <div class="container">
+                    <img src="images/merged-branch.svg">
+                    <label class="master-3">master</label>
+                    <label class="head-3">HEAD</label>
+                    <label class="feature-3">feature</label>
+                    </div>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git merge</code></h1>
+                    <p>multi parent commits - merge commits</p>
+                    <br>
+                    <pre>
+tree d364e0ea74f579d8329fc1cc938780fecd9f94e0
+parent 9f94e0d56d69ae0ea74f7118f40feec01803f364
+parent 94ef7118f49fa741803f30feec00d56d69ae0e64
+author Steve &lt;steve.the.professional.string.concatenator@gmail.com&gt; 1424782537 +0200
+committer mrkiffie &lt;mrkiffie@gmail.com&gt; 1424782537 +0200
+
+Merging in Steve's bugfix</pre>
+
+                    </pre>
+                    <aside class="notes">
+                        <ul><li>merge commits</li></ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git checkout</code></h1>
+                    <p>give me what you got</p>
+                    <br>
+                    <img src="images/checkout-truck.svg">
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git checkout</code></h1>
+                    <p>jump to a parallel universe</p>
+                    <div class="container">
+                    <img class="ct" src="images/branch2.svg" >
+                    <label class="fragment master-4">master</label>
+                    <label class="fragment feature-4">feature</label>
+                    <label class="fragment current-visible head-old-4">HEAD</label>
+                    <label class="fragment head-4">HEAD</label>
+                    </div>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git reset</code></h1>
+                    <p>remove files from staging area</p>
+                    <br>
+                    <img src="images/reset-truck.svg">
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git reset</code></h1>
+                    <p>arbitrarily move labels around</p>
+                    <code>git reset --hard HEAD</code>
+                    <br>
+                    <aside class="notes">
+                        <ul><li>get rid of a conflicted merge</li></ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git reset</code></h1>
+                    <p>arbitrarily move labels around</p>
+                    <code>git reset --hard HEAD^</code>
+                    <br>
+                    <aside class="notes">
+                    <ul><li>undo the last commit - reverting files to their previous state</li></ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git reset</code></h1>
+                    <p>arbitrarily move labels around</p>
+                    <code>git reset HEAD^</code>
+                    <br>
+                    <aside class="notes">
+                    <ul><li>undo the last commit - do not reverting files to their previous state</li></ul>
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git reset</code></h1>
+                    <p>arbitrarily move labels around</p>
+                    <code>git reset d3c45a97</code>
+
+                    <br>
+                    <br>
+                    <h2 class="fragment freakout">DETACHED HEAD!</h2>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git rebase</code></h1>
+                    <p>create a parallel reality</p>
+                    <br>
+                    <h2 class="fragment">Do NOT rebase after sharing it!</h2>
+                    <aside class="notes">
+                    </aside>
+                </section>
+
+
+                <section>
+                    <h1>git remote</h1>
+                    <p>configure sharing with the world</p>
+
+                    <pre>git remote add origin &lt;path/to/repo&gt;</pre>
+                    <br>
+                    <pre>
+ .git/
+ ├── refs
+ │   ├── heads
+ │   │   ├── feature
+ │   │   ├── bugfix
+ │   │   └── master
+ │   ├── remotes
+ │   │   └── origin
+ │   │       └── HEAD
+ │   └── tags
+                    </pre>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git fetch</code></h1>
+                    <p>are we on the same page?</p>
+                    <br>
+                    <pre>git fetch origin</pre>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git pull</code></h1>
+                    <p>essentially a fetch, followed by a merge</p>
+
+                    <pre>git pull origin master</pre>
+                    <pre>git pull &lt;remote&gt; &lt;branch-name&gt;</pre>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git push</code></h1>
+                    <p>share our changes</p>
+                    <pre>git push origin master</pre>
+                    <pre>git push &lt;remote&gt; &lt;branch-name&gt;</pre>
+
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                    <h1><code>git tag</code></h1>
+                    <p>which hash was our last release?</p>
+                    <br>
+                    <code class="fragment">git tag -a v42 -m "Answer to The Ultimate Question of Life, the Universe, and Everything"</code>
+                    <br>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <!-- <section> -->
+                    <section>
+                        <h1>bonus commands</h1>
+                        <div class="col">
+                            <p><code>stash</code></p>
+                            <p><code>bisect</code></p>
+                            <p><code>reflog</code></p>
+                        </div>
+                        <div class="col">
+                            <p><code>cherry-pick</code></p>
+                            <p><code>blame</code></p>
+                        </div>
                         <aside class="notes">
                         </aside>
                     </section>
                     <section>
-                        <h2>Basement Level 1</h2>
+                        <h1><code>git stash</code></h1>
+                        <p>my work in progress</p>
+
+                        <!-- <pre>git stash </pre>
+                        <pre>git stash save</pre>
+                        <pre>git stash list</pre>
+                        <pre>git stash pop</pre>
+                        <pre>git stash apply</pre>
+                        <pre>git stash clear</pre>
+                        <pre>git stash drop</pre> -->
+
+                        <br>
                         <aside class="notes">
                         </aside>
                     </section>
                     <section>
-                        <h2>Basement Level 2</h2>
+                        <h1><code>git bisect</code></h1>
+                        <p>binary search that sucker</p>
+                        <br>
                         <aside class="notes">
                         </aside>
                     </section>
+                    <section>
+                        <h1><code>git reflog</code></h1>
+                        <p>torvald's breadcrumbs</p>
+                        <br>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h1><code>git cherry-pick</code></h1>
+                        <p>instant replay</p>
+                        <br>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    <section>
+                        <h1><code>git blame</code></h1>
+                        <p>context - who knows what is going on here?</p>
+                        <br>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                <!-- </section> -->
+                <section>
+                    <h1>awesome resources</h1>
+
+                    <ul>
+                        <li><a href="http://git-scm.com/book/en/v2">pro git book</a></li>
+                        <li><a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a></li>
+                        <li><a href="http://ndpsoftware.com/git-cheatsheet.html">interactive git cheatsheet</a></li>
+                        <li><a href="http://justinhileman.info/article/git-pretty/git-pretty.png">git flowchart</a></li>
+                    </ul>
                     <aside class="notes">
                     </aside>
                 </section>
@@ -219,8 +614,22 @@
                 </section>
                 <section data-markdown>
                     <script type="text/template">
-                                        #Questions?
+                        #questions?
                     </script>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section >
+                        <h1>tips!</h1>
+
+                        <ul>
+                            <li>git bash completion</li>
+                            <li>create aliases</li>
+                            <li>modify your prompt with repo info</li>
+                            <li>commit early and regularly</li>
+                        </ul>
+
+
                     <aside class="notes">
                     </aside>
                 </section>
@@ -229,24 +638,26 @@
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.js"></script>
         <script>
-                    // Full list of configuration options available at:
-                    // https://github.com/hakimel/reveal.js#configuration
-                    Reveal.initialize({
-                        // controls: true,
-                        progress: true,
-                        history: true,
-                        center: false,
-                        transition: 'none', // none/fade/slide/convex/concave/zoom
-                        // Optional reveal.js plugins
-                        dependencies: [
-                            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                            { src: 'plugin/zoom-js/zoom.js', async: true },
-                            { src: 'plugin/notes/notes.js', async: true }
-                        ]
-                    });
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // controls: true,
+                progress: true,
+                history: true,
+                center: false,
+                transition: 'none', // none/fade/slide/convex/concave/zoom
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+                });
         </script>
     </body>
 </html>
+
+

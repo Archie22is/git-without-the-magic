@@ -133,7 +133,14 @@ module.exports = function(grunt) {
             html: {
                 files: [ 'index.html']
             }
-		}
+		},
+
+        inline: {
+            dist: {
+                src: 'index.html',
+                dest: 'build/index.html'
+            }
+        }
 
 	});
 
@@ -146,7 +153,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
 	grunt.loadNpmTasks( 'grunt-autoprefixer' );
-	grunt.loadNpmTasks( 'grunt-zip' );
+    grunt.loadNpmTasks( 'grunt-zip' );
+	grunt.loadNpmTasks( 'grunt-inline' );
 
 	// Default task
 	grunt.registerTask( 'default', [ 'css', 'js' ] );
@@ -162,6 +170,9 @@ module.exports = function(grunt) {
 
 	// All CSS
 	grunt.registerTask( 'css', [ 'sass', 'autoprefixer', 'cssmin' ] );
+
+    // Inline all assets into the html document
+    grunt.registerTask( 'inline', [ 'inline' ] );
 
 	// Package presentation to archive
 	grunt.registerTask( 'package', [ 'default', 'zip' ] );

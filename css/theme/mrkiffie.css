@@ -22,7 +22,7 @@ body {
 
 ::selection {
   color: #fff;
-  background: #bee4fd;
+  background: #5ec1ff;
   text-shadow: none; }
 
 .reveal .slides > section, .reveal .slides > section > section {
@@ -36,7 +36,7 @@ body {
   margin: 0 0 20px 0;
   color: #fff;
   font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: none;
@@ -181,20 +181,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #42affa;
+  color: #0088dd;
   text-decoration: none;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 .reveal a:hover {
-  color: #8dcffc;
+  color: #2baeff;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #068ee9; }
+  background: #005991; }
 
 /*********************************************
  * IMAGES
@@ -212,35 +212,35 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #42affa;
+  border-color: #0088dd;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
-  border-right-color: #42affa; }
+  border-right-color: #0088dd; }
 
 .reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
-  border-left-color: #42affa; }
+  border-left-color: #0088dd; }
 
 .reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #42affa; }
+  border-bottom-color: #0088dd; }
 
 .reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
-  border-top-color: #42affa; }
+  border-top-color: #0088dd; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #8dcffc; }
+  border-right-color: #2baeff; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #8dcffc; }
+  border-left-color: #2baeff; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #8dcffc; }
+  border-bottom-color: #2baeff; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #8dcffc; }
+  border-top-color: #2baeff; }
 
 /*********************************************
  * PROGRESS BAR
@@ -249,7 +249,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #42affa;
+  background: #0088dd;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
@@ -258,7 +258,7 @@ body {
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: #42affa; }
+  color: #0088dd; }
 
 .reveal a:hover img, .reveal section img {
   background: none;
@@ -272,7 +272,129 @@ small img.icon {
   vertical-align: middle;
   margin: -0.2em 0.25em; }
 
-.col {
+.reveal .col {
+  vertical-align: top;
+  display: inline-block;
+  margin: 0 auto;
   text-align: left;
+  width: 25%;
+  padding: 0 0 0 10%; }
+
+.reveal .col-3 {
+  vertical-align: top;
+  display: inline-block;
+  margin: 0 auto;
+  width: 30%;
+  padding: 0; }
+
+.reveal .fl {
   float: left;
-  width: 30%; }
+  text-align: right; }
+
+.reveal .fr {
+  float: right;
+  text-align: right; }
+
+.reveal .ct {
+  text-align: center;
+  margin: 0 auto; }
+
+.reveal pre {
+  box-shadow: none; }
+
+.reveal h1 code {
+  font-weight: 400; }
+
+.added {
+  color: #00cc00; }
+
+h2.freakout, .deleted {
+  color: #dd0000; }
+
+.context {
+  color: #0088dd; }
+
+.meta {
+  color: #cccc00; }
+
+.container {
+  position: relative; }
+  .container img {
+    height: 10em; }
+
+.head-1 {
+  position: absolute;
+  top: -1em;
+  left: 34%; }
+
+.master-1 {
+  position: absolute;
+  top: 0;
+  left: 31%; }
+
+.feature-1 {
+  position: absolute;
+  top: 0;
+  left: 56%; }
+
+.head-2 {
+  position: absolute;
+  top: 1em;
+  left: 65%; }
+
+.master-2 {
+  position: absolute;
+  top: 0;
+  left: 23%; }
+
+.feature-2 {
+  position: absolute;
+  top: 2em;
+  left: 65%; }
+
+.head-3 {
+  position: absolute;
+  top: -1em;
+  left: 29%; }
+
+.master-3 {
+  position: absolute;
+  top: 0;
+  left: 27%; }
+
+.feature-3 {
+  position: absolute;
+  top: 1.5em;
+  left: 60%; }
+
+.head-old-4 {
+  position: absolute;
+  top: 0em;
+  left: 25%; }
+
+.head-4 {
+  position: absolute;
+  top: 1em;
+  left: 65%; }
+
+.master-4 {
+  position: absolute;
+  top: 1em;
+  left: 23%; }
+
+.feature-4 {
+  position: absolute;
+  top: 2em;
+  left: 65%; }
+
+.full-width {
+  position: relative;
+  top: -3em;
+  width: 100%; }
+
+.smallprint {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  right: 0;
+  bottom: 0; }
